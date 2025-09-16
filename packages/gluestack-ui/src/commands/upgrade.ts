@@ -431,7 +431,7 @@ export const upgrade = new Command()
       let packageManager: string = 'npm';
       if (fs.existsSync('yarn.lock')) packageManager = 'yarn';
       else if (fs.existsSync('pnpm-lock.yaml')) packageManager = 'pnpm';
-      else if (fs.existsSync('bun.lockb')) packageManager = 'bun';
+      else if (fs.existsSync('bun.lock') || fs.existsSync('bun.lockb')) packageManager = 'bun';
       await updateTailwindConfig();
       installPackages(packageManager);
       removePackages(oldPackages, packageManager);
